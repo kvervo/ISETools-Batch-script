@@ -17,9 +17,9 @@ set /P  mypath=Please, enter your Project Name^>
 set /P  savepath=Please, enter where to save snapshots^>
 if %savepath%.==. set savepath=C:\%mypath%.Storage
 
-if not exist ..\%mypath%\Properties\WMAppManifest.xml goto error
+if not exist %mypath%\Properties\WMAppManifest.xml goto error
 
-xml sel -T -t -m "//App" -v "@ProductID" -n ..\%mypath%\Properties\WMAppManifest.xml > productID.txt
+xml sel -T -t -m "//App" -v "@ProductID" -n %mypath%\Properties\WMAppManifest.xml > productID.txt
 set /p var= < productID.txt
 set var=%var:{=%
 set var=%var:}=%
