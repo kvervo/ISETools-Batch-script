@@ -5,7 +5,7 @@ Description
 ---------------------
 A simple Batch script that allows you to take snapshots of the Isolated Storage on your Windows Phone device or emulator.
 
-It uses the XMLStarlet Command Line XML Toolkit to get the product id of your application from the WMAppManifest.xml
+It uses the [XMLStarlet Command Line XML Toolkit](http://xmlstar.sourceforge.net/) to get the product id of your application from the WMAppManifest.xml
 
 How to use it
 ---------------------
