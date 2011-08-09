@@ -45,12 +45,22 @@ if "%query%"=="3" exit
 goto home
 
 :tsde
+if "%programfiles(x86)%XXX"=="XXX" (
+"C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts de %var% %savepath%
+) else (
 "C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts de %var% %savepath%
-pause
-goto home
+)
+goto gohome
 
 :tsxd
+if "%programfiles(x86)%XXX"=="XXX" (
+"C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts xd %var% %savepath%
+) else (
 "C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts xd %var% %savepath%
+)
+goto gohome
+
+:gohome
 pause
 goto home
 
