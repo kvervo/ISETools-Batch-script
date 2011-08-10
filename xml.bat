@@ -36,12 +36,16 @@ echo =============
 echo.
 echo 1) Take snapshot from Emulator Storage
 echo 2) Take snapshot from Device Storage
-echo 3) Exit
+echo 3) List directories from Emulator Storage
+echo 4) List directories from Device Storage
+echo 5) Exit
 echo.
 set /p query=Type option:
 if "%query%"=="1" goto tsxd
 if "%query%"=="2" goto tsde
-if "%query%"=="3" exit
+if "%query%"=="3" goto dirxd
+if "%query%"=="4" goto dirde
+if "%query%"=="5" exit
 goto home
 
 :tsde
@@ -57,6 +61,22 @@ if "%programfiles(x86)%XXX"=="XXX" (
 "C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts xd %var% %savepath%
 ) else (
 "C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" ts xd %var% %savepath%
+)
+goto gohome
+
+:dirxd
+if "%programfiles(x86)%XXX"=="XXX" (
+"C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" dir xd %var%
+) else (
+"C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" dir xd %var%
+)
+goto gohome
+
+:dirde
+if "%programfiles(x86)%XXX"=="XXX" (
+"C:\Program Files\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" dir xd %var%
+) else (
+"C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v7.1\Tools\IsolatedStorageExplorerTool\ISETool.exe" dir xd %var%
 )
 goto gohome
 
