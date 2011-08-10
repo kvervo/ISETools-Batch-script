@@ -14,7 +14,7 @@ To use this script, you must have the latest [Windows Phone SDK](http://create.m
 How to use it
 ---------------------
 1. Download the xml.bat and xml.exe to the root folder of your Windows Phone project.
-2. Run xml.bat
+2. Run ISETool.bat
 3. You will be asked to provide the name of your project
 4. You will be asked to provide a path, where snapshots will be saved
 5. After this you can choose to take a snapshot either from the emulator or the device.
