@@ -44,10 +44,10 @@ echo 7) Exit
 echo.
 set /p query=Type option:
 if "%query%"=="1" goto tsxd
-if "%query%"=="2" goto tsde
-if "%query%"=="3" goto rsxd
-if "%query%"=="4" goto rsde
-if "%query%"=="5" goto dirxd
+if "%query%"=="2" goto rsxd
+if "%query%"=="3" goto dirxd
+if "%query%"=="4" goto tsde
+if "%query%"=="5" goto rsde
 if "%query%"=="6" goto dirde
 if "%query%"=="7" exit
 goto home
