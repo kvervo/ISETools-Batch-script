@@ -13,23 +13,27 @@ echo The default value will be used C:\YOUR_PROJECT_NAME.Storage
 echo =====================
 echo.
 
-set /P  mypath=Please, enter your Project Name^>
-set /P  savepath=Please, enter where to save snapshots^>
-if %savepath%.==. set savepath=C:\%mypath%.Storage
 
-if not exist %mypath%\Properties\WMAppManifest.xml goto error
+if not exist Properties\WMAppManifest.xml goto error
 
-xml sel -T -t -m "//App" -v "@ProductID" -n %mypath%\Properties\WMAppManifest.xml > productID.txt
-set /p var= < productID.txt
-set var=%var:{=%
-set var=%var:}=%
+xml sel -T -t -m "//App" -v "@ProductID" -n Properties\WMAppManifest.xml > productID.txt
+xml sel -T -t -m "//App" -v "@Title" -n Properties\WMAppManifest.xml > title.txt
+set /p id= < productID.txt
+set /p title= < title.txt
+set id=%id:{=%
+set id=%id:}=%
+set title=%title: =_%
 del productID.txt
+del title.txt
+
+set /P  savepath=Please, enter where to save snapshots^>
+if %savepath%.==. set savepath=C:\%title%.Storage
 
 :home
 cls
 echo.
-echo Project Name %mypath%
-echo Product ID %var%
+echo Project Name %title%
+echo Product ID %id%
 echo.
 echo Select a task:
 echo =============
@@ -53,29 +57,29 @@ if "%query%"=="7" exit
 goto home
 
 :tsde
-call:exec ts de %var% %savepath%
+call:exec ts de %id% %savepath%
 goto gohome
 
 :tsxd
-call:exec ts xd %var% %savepath%
+call:exec ts xd %id% %savepath%
 goto gohome
 
 :rsde
 set /P  restorepath=Please, enter path to restore^>
-call:exec rs de %var% %restorepath%
+call:exec rs de %id% %restorepath%
 goto gohome
 
 :rsxd
 set /P  restorepath=Please, enter path to restore^>
-call:exec rs xd %var% %restorepath%
+call:exec rs xd %id% %restorepath%
 goto gohome
 
 :dirxd
-call:exec dir xd %var%
+call:exec dir xd %id%
 goto gohome
 
 :dirde
-call:exec dir de %var%
+call:exec dir de %id%
 goto gohome
 
 :exec
